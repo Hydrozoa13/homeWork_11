@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <device id="retina6_72" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -46,11 +46,14 @@
                                             </progressView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PO8-Z6-O0J">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PO8-Z6-O0J">
                                         <rect key="frame" x="0.0" y="136" width="390" height="34"/>
                                         <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pL2-jF-x9l">
-                                                <rect key="frame" x="-2" y="0.0" width="253.66666666666666" height="35"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pL2-jF-x9l">
+                                                <rect key="frame" x="-2" y="0.0" width="229" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="225" id="mt8-1s-5IJ"/>
+                                                </constraints>
                                                 <imageReference key="minimumValueImage" image="speaker.minus" catalog="system" symbolScale="medium" renderingMode="hierarchical-single" variableValue="1">
                                                     <hierarchicalColors>
                                                         <color systemColor="separatorColor"/>
@@ -65,16 +68,22 @@
                                                         <color systemColor="tertiaryLabelColor"/>
                                                     </hierarchicalColors>
                                                 </imageReference>
-                                                <color key="minimumTrackTintColor" red="0.51372551919999998" green="0.30980393290000002" blue="0.5411764979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="minimumTrackTintColor" red="0.50980395079999996" green="0.30980393290000002" blue="0.53725492949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="maximumTrackTintColor" systemColor="separatorColor"/>
                                                 <color key="thumbTintColor" red="0.51372551919999998" green="0.30980393290000002" blue="0.5411764979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <connections>
+                                                    <action selector="sliderValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="kJu-mb-fIC"/>
+                                                </connections>
                                             </slider>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="dLG-H8-hM6">
-                                                <rect key="frame" x="259.66666666666669" y="0.0" width="130.33333333333331" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.0" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="dLG-H8-hM6">
+                                                <rect key="frame" x="229" y="0.0" width="161" height="34"/>
                                                 <color key="backgroundColor" systemColor="separatorColor"/>
                                                 <color key="textColor" red="0.51372551919999998" green="0.30980393290000002" blue="0.5411764979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done"/>
+                                                <connections>
+                                                    <action selector="textField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="u8Z-d7-ZcH"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -87,6 +96,7 @@
                                             </view>
                                             <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="SCZ-dv-Yjy">
                                                 <rect key="frame" x="0.0" y="9" width="390" height="216"/>
+                                                <color key="backgroundColor" systemColor="separatorColor"/>
                                                 <locale key="locale" localeIdentifier="be_BY"/>
                                             </datePicker>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="751" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5o-RL-YsR">
@@ -97,6 +107,9 @@
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="baseBackgroundColor" systemColor="separatorColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="setTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wgz-D5-dYE"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="751" verticalCompressionResistancePriority="752" placeholderIntrinsicWidth="170" placeholderIntrinsicHeight="4" translatesAutoresizingMaskIntoConstraints="NO" id="jt0-j9-fAK">
                                                 <rect key="frame" x="0.0" y="280.33333333333337" width="390" height="4"/>
@@ -107,19 +120,22 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wcc-FE-Vf5">
                                         <rect key="frame" x="0.0" y="494.33333333333337" width="390" height="32.333333333333371"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="15:41" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0f-gV-I1c">
-                                                <rect key="frame" x="0.0" y="0.0" width="108.33333333333333" height="32.333333333333336"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="11:14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0f-gV-I1c">
+                                                <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="32.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                                <color key="textColor" red="0.51372551919999998" green="0.30980393290000002" blue="0.5411764979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="fill" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhF-jG-qHM">
-                                                <rect key="frame" x="128.33333333333334" y="0.0" width="79.333333333333343" height="32.333333333333336"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="fill" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zhF-jG-qHM">
+                                                <rect key="frame" x="123.66666666666666" y="0.0" width="80.666666666666657" height="32.333333333333336"/>
                                                 <color key="onTintColor" red="0.51372551919999998" green="0.30980393290000002" blue="0.5411764979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="thumbTintColor" systemColor="separatorColor"/>
+                                                <connections>
+                                                    <action selector="switchOnOff:" destination="BYZ-38-t0r" eventType="valueChanged" id="MOT-bK-iXz"/>
+                                                </connections>
                                             </switch>
                                             <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="32.333333333333336" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhh-pQ-dkF">
-                                                <rect key="frame" x="225.66666666666663" y="0.0" width="164.33333333333337" height="32.333333333333336"/>
+                                                <rect key="frame" x="222.33333333333337" y="0.0" width="167.66666666666663" height="32.333333333333336"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="7XD-Lg-aOX"/>
                                                 </constraints>
@@ -129,6 +145,9 @@
                                                     <color key="baseForegroundColor" red="0.51372551919999998" green="0.30980393290000002" blue="0.5411764979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <color key="baseBackgroundColor" systemColor="separatorColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="clearAlarm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AqM-HJ-1XR"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -144,7 +163,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="labelAC" destination="Pig-An-GE3" id="GAC-DF-dld"/>
+                        <outlet property="btnClear" destination="Dhh-pQ-dkF" id="Wap-Qi-FTS"/>
+                        <outlet property="btnSetTime" destination="q5o-RL-YsR" id="j2L-Yn-qee"/>
+                        <outlet property="datePicker" destination="SCZ-dv-Yjy" id="ku8-MZ-T71"/>
+                        <outlet property="lblTime" destination="h0f-gV-I1c" id="6PN-RQ-b7k"/>
+                        <outlet property="progressView" destination="J1B-h7-R5I" id="aZb-fl-FMK"/>
+                        <outlet property="slider" destination="pL2-jF-x9l" id="139-X2-gJh"/>
+                        <outlet property="switcher" destination="zhF-jG-qHM" id="WcT-zS-x3q"/>
+                        <outlet property="textField" destination="dLG-H8-hM6" id="evs-df-mkm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

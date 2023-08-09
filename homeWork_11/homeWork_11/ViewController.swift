@@ -7,13 +7,44 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
+    @IBOutlet private weak var progressView: UIProgressView!
+    @IBOutlet private weak var slider: UISlider!
+    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var btnSetTime: UIButton!
+    @IBOutlet private weak var lblTime: UILabel!
+    @IBOutlet private weak var switcher: UISwitch!
+    @IBOutlet private weak var btnClear: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        textField.text = String(slider.value)
     }
-
-
+    
+    @IBAction private func sliderValue(_ sender: UISlider) {
+        textField.text = String(slider.value)
+        progressView.progress = slider.value
+    }
+    
+    @IBAction private func setTime(_ sender: UIButton) {
+        let formatter = DateFormatter()
+         formatter.dateFormat = "HH:mm"
+         lblTime.text = formatter.string(from: datePicker.date)
+    }
+    
+    @IBAction private func switchOnOff(_ sender: UISwitch) {
+        if switcher.isOn {
+            lblTime.textColor = .purple
+        } else {
+            lblTime.textColor = .black
+        }
+    }
+    
+    @IBAction private func clearAlarm(_ sender: UIButton) {
+        lblTime.text = ""
+        switcher.isOn = false
+        lblTime.textColor = .black
+    }
 }
-
