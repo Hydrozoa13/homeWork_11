@@ -20,9 +20,12 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.text = String(slider.value)
-        lblTime.text = "__:__"
-        switcher.isEnabled = false
+        func setupUI() {
+            textField.text = String(slider.value)
+            lblTime.text = "__:__"
+            switcher.isEnabled = false
+        }
+        setupUI()
     }
     
     @IBAction private func sliderValue(_ sender: UISlider) {
