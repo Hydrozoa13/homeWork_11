@@ -21,6 +21,8 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.text = String(slider.value)
+        lblTime.text = "__:__"
+        switcher.isEnabled = false
     }
     
     @IBAction private func sliderValue(_ sender: UISlider) {
@@ -39,21 +41,26 @@ final class ViewController: UIViewController {
     
     @IBAction private func setTime(_ sender: UIButton) {
         let formatter = DateFormatter()
-         formatter.dateFormat = "HH:mm"
-         lblTime.text = formatter.string(from: datePicker.date)
+        formatter.dateFormat = "HH:mm"
+        lblTime.text = formatter.string(from: datePicker.date)
+        switcher.isEnabled = true
+        switcher.isOn = true
+        lblTime.textColor = .purple
     }
     
     @IBAction private func switchOnOff(_ sender: UISwitch) {
-        if switcher.isOn {
+        if switcher.isOn && lblTime.text != "__:__" {
             lblTime.textColor = .purple
         } else {
             lblTime.textColor = .black
+            switcher.isOn = false
         }
     }
     
     @IBAction private func clearAlarm(_ sender: UIButton) {
-        lblTime.text = ""
+        lblTime.text = "__:__"
         switcher.isOn = false
+        switcher.isEnabled = false
         lblTime.textColor = .black
     }
 }
