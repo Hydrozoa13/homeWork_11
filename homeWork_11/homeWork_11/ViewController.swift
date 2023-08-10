@@ -28,6 +28,15 @@ final class ViewController: UIViewController {
         progressView.progress = slider.value
     }
     
+    @IBAction private func textFieldChange(_ sender: UITextField) {
+        if let value = textField.text {
+            if let unwrpValue = Float(value) {
+                slider.value = unwrpValue
+                progressView.progress = unwrpValue
+            }
+        }
+    }
+    
     @IBAction private func setTime(_ sender: UIButton) {
         let formatter = DateFormatter()
          formatter.dateFormat = "HH:mm"
